@@ -2,15 +2,19 @@
   "name": "portfolio",
   "version": "0.0.0",
   "license": "MIT",
-  "files": ["dist/apps/client", "dist/apps/api"],
+  "files": [
+    "dist/apps/client",
+    "dist/apps/api"
+  ],
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "nx": "nx",
     "start": "ng serve",
+    "start:prisma": "npx prisma studio",
     "start:cli": "ng serve client",
     "start:api": "ng serve api",
-    "dev": "concurrently -p=\"{name}\" -n=\"[Angular] - ,[NestJS] - \" -c=\"green,blue\" \"npm run start:cli\" \"npm run start:api\"",
+    "dev": "concurrently -p=\"{name}\" -n=\"[Angular] - ,[NestJS] - ,[Prisma] - \" -c=\"green,blue,yellow\" \"yarn start:cli\" \"yarn start:api\" \"yarn start:prisma\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
@@ -46,6 +50,7 @@
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/serve-static": "^2.1.4",
     "@nrwl/angular": "12.3.6",
+    "@prisma/client": "^2.26.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
@@ -83,6 +88,7 @@
     "jest": "26.2.2",
     "jest-preset-angular": "8.4.0",
     "prettier": "2.2.1",
+    "prisma": "^2.26.0",
     "ts-jest": "26.5.5",
     "ts-node": "~9.1.1",
     "typescript": "~4.2.4"
